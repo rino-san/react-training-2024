@@ -14,8 +14,12 @@ export default function App() {
   return (
     <div>
       <h1>ToDo List</h1>
-      <ul>
-        <li></li>
+      <ul style={{ listStyleType: 'none', padding: 0 }}>
+        {todoList.map((todo) => (
+          <li key={todo.id}>
+            <input type="checkbox" readOnly checked={todo.completed} />{todo.task}
+            </li>
+            ))}
       </ul>
     </div>
   );
