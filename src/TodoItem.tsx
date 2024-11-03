@@ -1,4 +1,5 @@
 import {TodoItemType} from "./App";
+import { Counter } from "./Counter";
 
 
 type Props = {
@@ -14,6 +15,8 @@ export function TodoItem({todoItem}:Props){
             <input type ="checkbox" readOnly checked={todoItem.completed}/>
             {todoItem.task}
             <button onClick={onDeleteButton}>削除</button>
+            <Counter/>
+
         </li>
     )
 }
