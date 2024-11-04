@@ -1,22 +1,24 @@
 import {TodoItemType} from "./App";
-import { Counter } from "./Counter";
 
 
 type Props = {
     todoItem: TodoItemType;
+    onToggle: () => void;
+    onDelete: () => void;
 };
 
-export function TodoItem({todoItem}:Props){
-    const onDeleteButton = () =>{
-        console.log(`Delete task: ${todoItem.task}`)
-    };
+export function TodoItem({todoItem, onToggle, onDelete}:Props){
     return(
         <li>
-            <input type ="checkbox" readOnly checked={todoItem.completed}/>
+            <input 
+            type ="checkbox" 
+            checked={todoItem.completed}
+            onChange={onToggle}
+            />
             {todoItem.task}
-            <button onClick={onDeleteButton}>削除</button>
-            <Counter/>
+            <button onClick={onDelete}>削除</button>
 
         </li>
     )
 }
+
